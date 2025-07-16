@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 
+
+app.use(express.json()); // Middleware to parse JSON bodies
+
+
 // track total of our calculator
 let total = 0;
 
@@ -28,11 +32,18 @@ app.post('/calculator', (req, res) => {
   } else if (operation === 'divide') {
     total /= number;
   } else {
-    return res.json({ error: 'Invalid operation' });
+    return res.status(400).json({ error: 'Invalid operation' });
   }
   // send back the updated total
   res.status(200).json({ total }); 
 });
+
+
+
+
+
+
+
 
 app.listen(3000, () => {
   console.log('Server is listening on port 3000');
