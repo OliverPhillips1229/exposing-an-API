@@ -37,7 +37,7 @@ app.post('/calculator', (req, res) => {
 
 app.delete('/calculator', (req, res) => {
   total = 0;
-  res.status(204);
+  res.status(204).send();
 });
 
 
