@@ -13,8 +13,12 @@ app.get('/calculator', (req, res) => {
   res.status(200).json({ total });
 });
 
-
-
+app.post('/calculator', (req, res) => {
+  // extract number and operation from request
+  // apply operation to total
+  // send back the updated total
+  
+});
 
 app.listen(3000, () => {
   console.log('Server is listening on port 3000');
