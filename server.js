@@ -13,11 +13,25 @@ app.get('/calculator', (req, res) => {
   res.status(200).json({ total });
 });
 
+//post route --> updates the total of the calculator
 app.post('/calculator', (req, res) => {
   // extract number and operation from request
+  const number = req.body.number;
+  const operation = req.body.operation;
   // apply operation to total
+  if (operation === 'add') {
+    total += number;
+  } else if (operation === 'subtract') {
+    total -= number;
+  } else if (operation === 'multiply') {
+    total *= number;
+  } else if (operation === 'divide') {
+    total /= number;
+  } else {
+    return res.json({ error: 'Invalid operation' });
+  }
   // send back the updated total
-  
+  res.status(200).json({ total }); 
 });
 
 app.listen(3000, () => {
