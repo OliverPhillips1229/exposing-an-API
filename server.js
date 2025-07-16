@@ -39,7 +39,10 @@ app.post('/calculator', (req, res) => {
 });
 
 
-
+app.delete('/calculator', (req, res) => {
+  total = 0; // reset the total to 0
+  res.status(204).send(); // send back a 204 No Content response
+});
 
 
 
