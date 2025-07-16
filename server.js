@@ -8,7 +8,9 @@ let total = 0;
 app.get('/calculator', (req, res) => {
   // add logic here to return the total
   // return the current total of the calculator
-  res.json({ total });
+  // add .status(200) to the response
+  // to indicate a successful request
+  res.status(200).json({ total });
 });
 
 
